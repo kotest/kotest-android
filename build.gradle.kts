@@ -41,7 +41,7 @@ allprojects {
       google()
    }
 
-   group = "io.kotest"
+   group = "io.kotest.android"
    version = Ci.publishVersion.value
 }
 
