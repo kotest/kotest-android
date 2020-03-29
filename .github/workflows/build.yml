@@ -19,7 +19,6 @@ jobs:
                fetch-depth: 0
 
          -  name: Run tests
-            if: matrix.os == 'ubuntu-latest'
             run: ./gradlew check
 
          -  name: Bundle the build report
