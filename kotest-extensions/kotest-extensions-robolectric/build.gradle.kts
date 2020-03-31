@@ -1,58 +1,24 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-    id("java")
-    id("kotlin-multiplatform")
-    id("java-library")
+    kotlin("jvm")
 }
 
-repositories {
-    mavenCentral()
-    google()
-}
-kotlin {
-
-    targets {
-        jvm {
-            compilations.all {
-                kotlinOptions {
-                    jvmTarget = "1.8"
-                }
-            }
-        }
-    }
-
-    targets.all {
-        compilations.all {
-            kotlinOptions {
-                freeCompilerArgs + "-Xuse-experimental=kotlin.Experimental"
-            }
-        }
-    }
-
-    sourceSets {
-
-        val jvmMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-jdk8"))
-                implementation(kotlin("reflect"))
-                implementation(Libs.Kotest.Core)
-                implementation("org.robolectric:robolectric:4.3")
-                implementation("junit:junit:4.12")
-            }
-        }
-    }
+dependencies {
+    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("reflect"))
+    implementation(Libs.Kotest.Core)
+    implementation("org.robolectric:robolectric:4.3")
+    implementation("junit:junit:4.13")
 }
 
-tasks.named<Test>("jvmTest") {
+tasks.withType<Test> {
     useJUnitPlatform()
-    filter {
-        setFailOnNoMatchingTests(false)
-    }
-    testLogging {
-        showExceptions = true
-        showStandardStreams = true
-        events = setOf(org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED, org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED)
-        exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
-    }
 }
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
 
 apply(from = "../../publish-mpp.gradle.kts")

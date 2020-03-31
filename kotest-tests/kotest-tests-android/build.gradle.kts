@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 
 plugins {
     id("com.android.application")
@@ -16,13 +15,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     
-    lintOptions {
-        tasks.lint.get().enabled = false
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
     
-    kotlinOptions {
-        val opts = this as KotlinJvmOptions
-        opts.jvmTarget = "1.8"
+    lintOptions {
+        tasks.lint.get().enabled = false
     }
     
     defaultConfig {
@@ -50,7 +48,7 @@ android {
 dependencies {
     // Kotlin
     implementation(kotlin("stdlib-jdk8", KotlinCompilerVersion.VERSION))
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.61")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.71")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0")
     
     // Android

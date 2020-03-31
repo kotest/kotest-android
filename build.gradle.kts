@@ -1,5 +1,4 @@
 buildscript {
-
    repositories {
       mavenCentral()
       mavenLocal()
@@ -7,14 +6,12 @@ buildscript {
    }
 
    dependencies {
-     classpath("com.android.tools.build:gradle:3.6.0")
+     classpath("com.android.tools.build:gradle:3.6.1")
+      classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Libs.kotlinVersion}")
    }
 }
 
 plugins {
-   java
-   kotlin("multiplatform") version Libs.kotlinVersion
-   id("java-library")
    id("maven-publish")
    signing
    id("com.adarshr.test-logger") version Libs.adarshrTestLoggerVersion
@@ -34,7 +31,7 @@ tasks.dokka {
 
 
 allprojects {
-
+   
    repositories {
       mavenCentral()
       jcenter()

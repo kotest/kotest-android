@@ -1,5 +1,3 @@
-apply(plugin = "java")
-apply(plugin = "java-library")
 apply(plugin = "maven-publish")
 apply(plugin = "signing")
 apply(plugin = "org.jetbrains.dokka")
@@ -54,7 +52,7 @@ publishing {
          artifact(dokkaJar)
          pom {
             name.set("Kotest")
-            description.set("Kotlin Test Framework")
+            description.set("Kotest Framework")
             url.set("http://www.github.com/kotest/kotest")
 
             scm {
