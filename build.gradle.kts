@@ -6,7 +6,7 @@ buildscript {
    }
 
    dependencies {
-     classpath("com.android.tools.build:gradle:3.6.1")
+      classpath("com.android.tools.build:gradle:4.1.0-rc03")
       classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Libs.kotlinVersion}")
    }
 }
@@ -31,7 +31,6 @@ tasks.dokka {
 
 
 allprojects {
-   
    repositories {
       mavenCentral()
       jcenter()
