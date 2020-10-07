@@ -2,7 +2,6 @@ package io.kotest.androidtest
 
 import android.app.Activity
 import android.os.Bundle
-import com.sksamuel.androidtest.R
 
 class MainActivity : Activity() {
 
