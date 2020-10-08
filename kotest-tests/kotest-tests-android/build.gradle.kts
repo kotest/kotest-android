@@ -10,8 +10,13 @@ plugins {
 android {
    compileSdkVersion(30)
 
-   defaultConfig{
+   defaultConfig {
+      applicationId = "io.kotlintest.androidtests"
       multiDexEnabled = true
+      minSdkVersion(26) // TODO: bring this down to 21 when solving bug io.github.classgraph min API 26
+      targetSdkVersion(30)
+
+      testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
    }
 
    compileOptions {
@@ -26,14 +31,6 @@ android {
 
    lintOptions {
       tasks.lint.get().enabled = false
-   }
-
-   defaultConfig {
-      applicationId = "io.kotlintest.androidtests"
-      minSdkVersion(21)
-      targetSdkVersion(30)
-
-      testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
    }
 
    testOptions {
@@ -52,7 +49,6 @@ dependencies {
    // Kotlin
    implementation(kotlin("stdlib-jdk8", KotlinCompilerVersion.VERSION))
    implementation(kotlin("reflect", KotlinCompilerVersion.VERSION))
-//   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9")
 
    // Android
    implementation("androidx.core:core-ktx:1.3.2")
@@ -65,4 +61,10 @@ dependencies {
    androidTestImplementation(project(":kotest-assertions:kotest-assertions-android"))
    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
    androidTestImplementation("androidx.test:core-ktx:1.3.0")
+}
+
+allprojects {
+   configurations.all {
+      resolutionStrategy.force("org.objenesis:objenesis:2.6")
+   }
 }
