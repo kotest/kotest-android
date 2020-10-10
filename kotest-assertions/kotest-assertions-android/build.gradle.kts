@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.config.KotlinCompilerVersion
+
 plugins {
    id("com.android.library")
    kotlin("android")
@@ -11,10 +13,10 @@ repositories {
 
 
 android {
-   compileSdkVersion(28)
+   compileSdkVersion(30)
    defaultConfig {
-     minSdkVersion(16)
-     targetSdkVersion(28)
+      minSdkVersion(16)
+      targetSdkVersion(30)
    }
    buildTypes {
       getByName("release") {
@@ -32,9 +34,9 @@ android {
 }
 
 dependencies {
-   implementation(kotlin("stdlib-jdk8", org.jetbrains.kotlin.config.KotlinCompilerVersion.VERSION))
-   api(Libs.Kotest.Assertions)
-   implementation("androidx.core:core-ktx:1.2.0")
+   implementation(kotlin("stdlib-jdk8", KotlinCompilerVersion.VERSION))
+   implementation(Libs.Kotest.Assertions)
+   implementation("androidx.core:core-ktx:1.3.2")
 }
 
 apply(from = "../../publish-mpp.gradle.kts")
