@@ -65,6 +65,6 @@ dependencies {
 
 allprojects {
    configurations.all {
-      resolutionStrategy.force("org.objenesis:objenesis:2.6")
+      resolutionStrategy.force("org.objenesis:objenesis:3.2")
    }
 }
