@@ -36,7 +36,7 @@ android {
 dependencies {
    implementation(kotlin("stdlib-jdk8", KotlinCompilerVersion.VERSION))
    implementation(Libs.Kotest.Assertions)
-   implementation("androidx.core:core-ktx:1.3.2")
+   implementation("androidx.core:core-ktx:1.7.0")
 }
 
 apply(from = "../../publish-mpp.gradle.kts")

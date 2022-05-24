@@ -51,7 +51,7 @@ dependencies {
    implementation(kotlin("reflect", KotlinCompilerVersion.VERSION))
 
    // Android
-   implementation("androidx.core:core-ktx:1.3.2")
+   implementation("androidx.core:core-ktx:1.7.0")
 
    // AndroidTest
    androidTestImplementation(Libs.AndroidX.Testing.runner)
