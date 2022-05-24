@@ -60,7 +60,7 @@ dependencies {
    androidTestImplementation(Libs.Kotest.Junit4Runner)
    androidTestImplementation(project(":kotest-assertions:kotest-assertions-android"))
    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
-   androidTestImplementation("androidx.test:core-ktx:1.3.0")
+   androidTestImplementation("androidx.test:core-ktx:1.4.0")
 }
 
 allprojects {
