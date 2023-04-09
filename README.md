@@ -1,3 +1,8 @@
+# ⚠️ REPOSITORY ARCHIVED
+
+The Kotest team is not maintaining direct support to Android anymore. This should be implemented by 3rd parties such as https://github.com/LeoColman/kotest-android.
+
+
 # kotest-android
 
 ![build](https://github.com/kotest/kotest-android/workflows/build/badge.svg)
